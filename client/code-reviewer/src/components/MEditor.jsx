@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import MonacoEditor from '@monaco-editor/react'
 const MEditor = () =>{
     let [lang,setLang]=useState("javascript");
-    let [theme,setTheme]=useState("vs");
+    let [theme,setTheme]=useState("vs-dark");
         const languages = [
   "javascript",
   "java",
@@ -14,16 +14,16 @@ const MEditor = () =>{
   "css",
   "json",
     ];
-    const themes=["vs","vs-dark","hc-black"]
+    const themes=["vs-dark","vs","hc-black"]
    
       return(
         <>
         <div className='editor-langtheme'>
           <div><div className='lang-theme'> 
-          <select onChange={(e)=>{setLang(e.target.value)}} value={lang} id="">
+          <select onChange={(e)=>{setLang(e.target.value)}} value={lang} id="Lselect">
             {languages.map((lang)=>(<option value={lang}>{lang}</option>))}
           </select>
-          <select onChange={(e)=>{setTheme(e.target.value)}} value={theme}>
+          <select onChange={(e)=>{setTheme(e.target.value)}} value={theme} id='Tselect'>
             {themes.map((theme)=>(<option value={theme}>{theme}</option>))}
           </select>
        </div>

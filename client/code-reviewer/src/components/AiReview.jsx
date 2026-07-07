@@ -2,7 +2,7 @@ import React from 'react'
 
 const AiReview = () => {
   return (
-    <div>AiReview</div>
+    <div className='review-words'>AI REVIEW</div>
   )
 }
 
