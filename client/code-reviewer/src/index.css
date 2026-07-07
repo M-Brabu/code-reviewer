@@ -1,11 +1,13 @@
 .navbar{
+    margin-top: -5px;
     display: flex;
     justify-content:space-between;
-    background-color: burlywood;
+    background-color:darksalmon;
     border-radius: 10px;
 }
 .navtitle{
     margin-left: 5%;
+    font-family:cursive;
 }
 .navbtns{
     display: flex;
@@ -21,9 +23,43 @@
    border-radius: 10%;
 }
 .navbtn2{
-   background-color:red;
-   color:white;
+   background-color:beige;
+   color:black;
    border: none;
    padding:10%;
    border-radius: 10%;
+}
+.Editor-review-panel{
+    display: flex;
+    gap:5%;
+    background-color:beige;
+}
+.lang-theme{
+    display: flex;
+    gap: 10px;
+    background-color:burlywood;
+    display: flex;
+    justify-content:space-evenly;
+    padding:2%;
+    border-radius: 10px;
+
+}
+.editor-langtheme{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.revbtn{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    margin:4%;
+    justify-self:end;
+    border-style: none;
+    border-radius: 10px;
+    background-color:darkgray;
+}
+.revbtn:hover{
+    background-color:burlywood ;
+    cursor: pointer;
 }
