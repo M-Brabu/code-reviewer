@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import MonacoEditor from '@monaco-editor/react'
 const MEditor = () =>{
     let [lang,setLang]=useState("javascript");
-    let [theme,setTheme]=useState("vs-dark");
+    let [theme,setTheme]=useState("vs");
         const languages = [
   "javascript",
   "java",
@@ -14,7 +14,7 @@ const MEditor = () =>{
   "css",
   "json",
     ];
-    const themes=["vs-dark","vs","hc-black"]
+    const themes=["vs","vs-dark","hc-black"]
    
       return(
         <>
@@ -36,7 +36,7 @@ const MEditor = () =>{
            theme={theme}
            loading={<h1>CODE EDITOR LOADING</h1>}
            language={lang}
-           defaultValue='console.log(`Hello`) '
+           defaultValue='console.log(`Hello world !`) '
            defaultLanguage='javascript'
            options={{
               fontSize:16,
