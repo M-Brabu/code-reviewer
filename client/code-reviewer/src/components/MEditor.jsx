@@ -26,16 +26,18 @@ const MEditor = () =>{
           <select onChange={(e)=>{setTheme(e.target.value)}} value={theme} id='Tselect'>
             {themes.map((theme)=>(<option value={theme}>{theme}</option>))}
           </select>
+           <button className='revbtn'>Review</button>
        </div>
        </div>
        <div>
           <MonacoEditor
            height="75vh"
-           width="100%"
+           width="107%"
            theme={theme}
            loading={<h1>CODE EDITOR LOADING</h1>}
            language={lang}
-           defaultValue='Switch To Programming Language You are Using....and paste it here'
+           defaultValue='console.log(`Hello`) '
+           defaultLanguage='javascript'
            options={{
               fontSize:16,
               minimap:{enabled:true},
@@ -48,7 +50,7 @@ const MEditor = () =>{
            }
            }
           />
-          <button className='revbtn'>Review</button>
+         
           </div>
           </div>
         </>
