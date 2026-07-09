@@ -3,7 +3,7 @@ import MonacoEditor from '@monaco-editor/react'
 const MEditor = () =>{
     let [lang,setLang]=useState("javascript");
     let [theme,setTheme]=useState("vs");
-        const languages = [
+    const languages = [
   "javascript",
   "java",
   "python",
@@ -15,7 +15,18 @@ const MEditor = () =>{
   "json",
     ];
     const themes=["vs","vs-dark","hc-black"]
-   
+    let [code,setCode] = useState("console.log(`Hello`)")
+    const handleReview = async () => {
+      const response = await fetch("http://localhost:1000/api/review",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({code:code})
+      })
+      const res = await response.json()
+      console.log(res)
+    }
       return(
         <>
         <div className='editor-langtheme'>
@@ -26,7 +37,7 @@ const MEditor = () =>{
           <select onChange={(e)=>{setTheme(e.target.value)}} value={theme} id='Tselect'>
             {themes.map((theme)=>(<option value={theme}>{theme}</option>))}
           </select>
-           <button className='revbtn'>Review</button>
+           <button className='revbtn' onClick={handleReview}>Review</button>
        </div>
        </div>
        <div>
@@ -36,7 +47,7 @@ const MEditor = () =>{
            theme={theme}
            loading={<h1>CODE EDITOR LOADING</h1>}
            language={lang}
-           defaultValue='console.log(`Hello world !`) '
+           defaultValue={code}
            defaultLanguage='javascript'
            options={{
               fontSize:16,
@@ -49,6 +60,7 @@ const MEditor = () =>{
               formatOnPaste:true,
            }
            }
+           onChange={(value)=>{setCode(value)}}
           />
          
           </div>
