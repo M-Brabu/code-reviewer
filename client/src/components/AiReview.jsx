@@ -1,8 +1,10 @@
 import React from 'react'
-
+import ReactMarkdown from "react-markdown"
 const AiReview = ({review}) => {
   return (
-    <div className='review-words'>{review}</div>
+    <div className='review-words'>
+     <ReactMarkdown>{review}</ReactMarkdown> 
+      </div>
   )
 }
 

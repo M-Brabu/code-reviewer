@@ -6,7 +6,7 @@ const ai = new GoogleGenAI({
 
 export const reviewCode = async (code)=>{
     const response = await ai.models.generateContent({
-        model:"gemini-3.5-flash",
+        model:"gemini-3.1-flash-lite",
      contents: `
 You are an expert software engineer.
 

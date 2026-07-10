@@ -56,7 +56,7 @@ const MEditor = () =>{
        </div>
        <div>
           <MonacoEditor
-           height="75vh"
+           height="50vh"
            width="165%"
            theme={theme}
            loading={<h1>CODE EDITOR LOADING</h1>}
@@ -72,6 +72,7 @@ const MEditor = () =>{
               readOnly:false,
               automaticLayout:true,
               formatOnPaste:true,
+              scrollBeyondLastColumn:false
            }
            }
            onChange={(value)=>{setCode(value)}}
