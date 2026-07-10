@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
+import React,{use, useState} from 'react'
 import MonacoEditor from '@monaco-editor/react'
+import AiReview from "./AiReview.jsx"
 const MEditor = () =>{
     let [lang,setLang]=useState("javascript");
     let [theme,setTheme]=useState("vs");
@@ -16,7 +17,10 @@ const MEditor = () =>{
     ];
     const themes=["vs","vs-dark","hc-black"]
     let [code,setCode] = useState("console.log(`Hello`)")
+    const [loading,setLoading] = useState(false)
+    const [review,setReview]=useState("")
     const handleReview = async () => {
+      try{setLoading(true)
       const response = await fetch("http://localhost:1000/api/review",{
         method:"POST",
         headers:{
@@ -25,7 +29,17 @@ const MEditor = () =>{
         body:JSON.stringify({code:code})
       })
       const res = await response.json()
+      if(!response.ok){
+        throw new Error(res.message || "something went wrong")
+      }
       console.log(res)
+      setReview(res.review)
+    }catch(err){
+      setReview(err.message)
+    }
+    finally{
+      setLoading(false)
+    }
     }
       return(
         <>
@@ -43,7 +57,7 @@ const MEditor = () =>{
        <div>
           <MonacoEditor
            height="75vh"
-           width="107%"
+           width="165%"
            theme={theme}
            loading={<h1>CODE EDITOR LOADING</h1>}
            language={lang}
@@ -62,7 +76,7 @@ const MEditor = () =>{
            }
            onChange={(value)=>{setCode(value)}}
           />
-         
+          <AiReview review={review}></AiReview>
           </div>
           </div>
         </>

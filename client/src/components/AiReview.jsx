@@ -1,8 +1,8 @@
 import React from 'react'
 
-const AiReview = () => {
+const AiReview = ({review}) => {
   return (
-    <div className='review-words'>AI REVIEW</div>
+    <div className='review-words'>{review}</div>
   )
 }
 

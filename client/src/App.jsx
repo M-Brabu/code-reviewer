@@ -8,7 +8,7 @@ return (
     <Navbar/>
     <div className='Editor-review-panel'>
     <MEditor/>
-    <AiReview/>
+    {/* <AiReview/> */}
     </div>
     </>
   )
