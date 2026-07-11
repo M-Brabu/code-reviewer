@@ -18,7 +18,7 @@ const MEditor = () =>{
     const themes=["vs","vs-dark","hc-black"]
     let [code,setCode] = useState("console.log(`Hello`)")
     const [loading,setLoading] = useState(false)
-    const [review,setReview]=useState("")
+    const [review,setReview]=useState("Review Will Shown Here .... !")
     const handleReview = async () => {
       try{setLoading(true)
       const response = await fetch("http://localhost:1000/api/review",{

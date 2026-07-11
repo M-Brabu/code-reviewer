@@ -1,5 +1,5 @@
 import {GoogleGenAI} from "@google/genai"
-console.log("API Key:", process.env.GEMINI_API_KEY);
+//console.log("API Key:", process.env.GEMINI_API_KEY);
 const ai = new GoogleGenAI({
    apiKey:process.env.GEMINI_API_KEY,
 })
@@ -10,7 +10,7 @@ export const reviewCode = async (code)=>{
      contents: `
 You are an expert software engineer.
 
-Review the following code.
+Review the following code.  
 
 Explain:
 1. Bugs
