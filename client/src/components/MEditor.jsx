@@ -1,6 +1,7 @@
 import React,{use, useState} from 'react'
 import MonacoEditor from '@monaco-editor/react'
 import AiReview from "./AiReview.jsx"
+const API_URL = import.meta.env.VITE_API_URL
 const MEditor = () =>{
     let [lang,setLang]=useState("javascript");
     let [theme,setTheme]=useState("vs");
@@ -21,7 +22,7 @@ const MEditor = () =>{
     const [review,setReview]=useState("Review Will Shown Here .... !")
     const handleReview = async () => {
       try{setLoading(true)
-      const response = await fetch("http://localhost:1000/api/review",{
+      const response = await fetch(`${API_URL}/api/review`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
